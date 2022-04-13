@@ -1,11 +1,68 @@
 <!--
+  ** Devido falta de familiaridade com framework Laravel não consegui realizar a exibição da hora no site...
+  acredito que tive também algumas falhas ao trabalhar com mysql..
+
+
+
+
   // TODO: criar o layout como no diagrama
   // TODO: adicionar o link de navegação à sidebar
   // TODO: exibir a resposta da data-hora consultada na api
   // TODO: adicionar um input e um botão à página
   // TODO: criar um método POST no api.service que envie o texto do input e exiba a resposta na página
 -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   
+</head>
+<body>  
+  
 
-<h1>Título da página</h1>
+<div class="hole">
 
-{{ apiGreeting }}
+
+  <div class=" title">
+    <h1 >Título da página</h1>
+  </div>
+
+
+  <div class="side">
+    <div class= 'text'><p>SIDEBAR</p>
+      <a
+      routerLink="/start"      
+      class="route-link">
+      Start
+    </a>
+    </div>
+  </div>
+
+
+
+  <div class="main">
+
+    <div class="text-main">
+      <p>Helllo, world! Laravel! OK</p>
+      
+      <div>Qual seu nome?</div>
+
+      <input  value="Seu nome" type="text" name="" id="input" size="20" >
+
+      <input type="button" value="Enviar" id="button" onclick= "post()">
+
+      <p class=" resposta">resposta</p>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
