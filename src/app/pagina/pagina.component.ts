@@ -1,33 +1,62 @@
 import { Component, OnInit } from '@angular/core';
-
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 import { catchError } from 'rxjs/operators';
-
 import { ApiService } from '../services/api.service';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-pagina',
   templateUrl: './pagina.component.html',
-  styleUrls: ['./pagina.component.scss']
+  styleUrls: ['./pagina.component.scss'],
 })
 export class PaginaComponent implements OnInit {
-
-  public apiGreeting = '';
+  time: any;
+  date: any;
+  public data: FormGroup;
+  public apiText = '';
 
   constructor(
-    private apiService: ApiService
-  ) { }
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private cd: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.apiService.getHello().pipe(
-      catchError((err) => {
-        this.apiGreeting = 'Falha na comunicação com o servidor.';
-        return [];
-      })
-    ).subscribe((response) => {
-      if (response) {
-        this.apiGreeting = response.mensagem;
-      }
+    //Formulario input text
+    this.data = this.fb.group({
+      text: ['', Validators.required],
     });
+
+    // Retorna a cada 60 segundos a data e o horário 
+    this.apiService.getData().subscribe((response) => {
+      this.time = response.time;
+      this.date = response.date;
+      this.cd.detectChanges();
+    });
+
+
+    // Enviar texto com a tecla Enter
+    document
+      .getElementById('inptText')
+      .addEventListener('keyup', function (event) {
+        event.preventDefault();
+        if (event.which === 13) {
+          document.getElementById('btn').click();
+        }
+      });
+
   }
 
+  public createText() {
+    this.apiService.getText(this.data.value).subscribe((response) => {
+      this.apiText = response.text;
+    });
+    this.data.reset();
+  }
 }

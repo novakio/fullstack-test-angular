@@ -1,11 +1,32 @@
-<!--
-  // TODO: criar o layout como no diagrama
-  // TODO: adicionar o link de navegação à sidebar
-  // TODO: exibir a resposta da data-hora consultada na api
-  // TODO: adicionar um input e um botão à página
-  // TODO: criar um método POST no api.service que envie o texto do input e exiba a resposta na página
--->
+<mat-toolbar class="header">
+  <h1>Novakio</h1>
+</mat-toolbar>
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <h2>Sidebar</h2>
+    <a href="/start">Start</a>
+  </mat-sidenav>
 
-<h1>Título da página</h1>
-
-{{ apiGreeting }}
+  <mat-sidenav-content>
+    <!--Main content of Application-->
+    <main>
+      <div class="content">
+        <div class="data">
+          <p>{{ time }} {{ date }}</p>
+        </div>
+        <h1>Seja bem vindo a Novakio Daniel!</h1>
+        <mat-form-field [formGroup]="data">
+          <mat-label>Digitar</mat-label>
+          <input matInput type="text" id="inptText" formControlName="text" />
+        </mat-form-field>
+        <button class="btn" mat-raised-button id="btn" (click)="createText()">
+          Enviar
+        </button>
+        <div class="text-box">
+          {{ apiText }}
+        </div>
+      </div>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<mat-toolbar class="footer"><span>testeeeeeeee</span></mat-toolbar>
