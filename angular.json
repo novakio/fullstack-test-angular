@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "fullstack-test-angular"
+  "defaultProject": "fullstack-test-angular",
+  "cli": {
+    "analytics": "33f61845-1e2f-4ff9-a467-a3cf20f8c755"
+  }
 }
