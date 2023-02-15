@@ -6,6 +6,26 @@
   // TODO: criar um método POST no api.service que envie o texto do input e exiba a resposta na página
 -->
 
-<h1>Título da página</h1>
-
-{{ apiGreeting }}
+<div>
+  <header class="title">
+    <h1>Fullstack Test Angular</h1>
+  </header>
+  <body>
+    <div class="sidebar">
+      <a rel="stylesheet" href="start">Start</a>
+    </div>
+    <div class="content">
+      <h3>
+        {{ apiGreeting }}
+      </h3>
+      <p>data e hora</p>
+      <div class="input-content">
+        <input type="text" />
+        <div class="button-content">
+          <button>Enviar</button>
+        </div>
+      </div>
+      <p>inserção pelo input</p>
+    </div>
+  </body>
+</div>

@@ -1,0 +1,40 @@
+header {
+  background-color: #7950f2;
+  color: white;
+  padding: 5rem;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar {
+  background-color: #ced4da;
+  height: 100%;
+  padding-bottom: 100%;
+  text-align: center;
+  width: 20%;
+  padding-top: 1rem;
+}
+
+.content {
+  align-items: center;
+  background-color: lightcyan;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+}
+
+.input-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
