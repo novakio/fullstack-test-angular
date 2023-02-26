@@ -18,14 +18,21 @@
       <h3>
         {{ apiGreeting }}
       </h3>
-      <p>data e hora</p>
-      <div class="input-content">
-        <input type="text" />
+      <p>{{ dateTime }}</p>
+      <div class="input-content" id="insertTexto">
+        <input
+          type="text"
+          placeholder="Insira um texto"
+          id="texto"
+          name="texto"
+          [value]="text"
+          (keyup)="onchangeInput($event.target.value)"
+        />
         <div class="button-content">
-          <button>Enviar</button>
+          <button type="submit" (click)="sendText()" >Enviar</button>
         </div>
       </div>
-      <p>inserção pelo input</p>
+      <p>{{ showText }}</p>
     </div>
   </body>
 </div>
